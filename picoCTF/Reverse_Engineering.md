@@ -4,6 +4,7 @@ Can you figure out what is in the eax register at the end of the main function? 
 ## Solution: 
 Here we ustilise the IDA disassembler to view the contents of the file. Using which, we look into the main function via asm or graph view on IDA and extract the value of eax. Here the mov command directs the value on the right hand side into the register eax, the value followed by mov command is what is copied into eax after the main function call. i.e 86342h. This is in hexadecimal. We furthermore place this value into cyberchef to convert it from hexadecimal to decimal. 
 
+![](IMAGES/screenshot.png "IDA graph view.")
 
 ## Flag 
 ```
