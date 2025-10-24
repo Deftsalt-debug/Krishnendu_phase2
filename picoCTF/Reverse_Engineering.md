@@ -26,3 +26,61 @@ Cyberchef (https://cyberchef.org/)
 ***
 
 # 2. ARMssembly 1
+
+
+
+***
+
+# 3. Vault Door 3
+This vault uses for-loops and byte arrays. The source code for this vault is here: VaultDoor3.java
+
+## Solution
+Here upon analysis of the java source code we get the following string from which the password/flag is generated.
+```
+jU5t_a_sna_3lpm12g94c_u_4_m7ra41
+```
+The code switches this target string in accordance to its position and modifies characters by varying degrees wrt the position in the buffer character array, here we're taking characters from the string but rearranging them by this specific permuation.
+Now using python (anything works, I just want to learn python so I've taken some external help) to reconstruct the original password from the target. 
+
+```python 
+target = "jU5t_a_sna_3lpm12g94c_u_4_m7ra41"  
+password = ['?'] * 32
+for i in range(0, 8):
+    buffer_idx = i
+    pwd_idx = i
+    password[pwd_idx] = target[buffer_idx]
+for i in range(8, 16):
+    buffer_idx = i
+    pwd_idx = 23 - i
+    password[pwd_idx] = target[buffer_idx]
+i = 16
+while i < 32:
+    buffer_idx = i
+    pwd_idx = 46 - i
+    password[pwd_idx] = target[buffer_idx]
+    i += 2
+i = 31
+while i >= 17:
+    buffer_idx = i
+    pwd_idx = i
+    password[pwd_idx] = target[buffer_idx]
+    i -= 2
+
+recovered = ''.join(password)
+print("flag: picoCTF{" + recovered + "}")
+```
+
+## Flag:
+```
+picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_c79a21}
+```
+
+## Concepts learnt
+This required an understanding of how the program works, here the user input password is run into an empty buffer container and is subjected to multiple iterations of loops that alter the character in the input string and copies them into buffer. At the end a check is done with buffer against a target string and the program outputs a vaild output if they are equal. Here I've also learnt a little about python, utilised loops in python along with indexes in arrays. 
+
+## Notes:
+Note to report here, the java file did not require any dissassembly, only took time to contruct the python program
+
+## Resources
+https://www.w3schools.com/python/python_for_loops.asp
+https://www.w3schools.com/python/python_while_loops.asp
