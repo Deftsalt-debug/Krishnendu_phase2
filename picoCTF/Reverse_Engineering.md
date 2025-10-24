@@ -6,10 +6,9 @@ Here we ustilise the IDA disassembler to view the contents of the file. Using wh
 
 
 ## Flag 
-'''
+```
 picoCTF{549698}
-'''
-
+```
 ## Concepts learnt:
 This challenge inundates us into the utilisation of disassembly software to reverse engineer functions. This was a simple challenge which accquainted us to the disassembler and undertand the various sections to look out for. A disassembler generates assembly language source code from machine-executable code. Here we learnt the use of mov in asm interpretation and how it correlates into placing a value into a register(here, eax). Note that in assembly language, a register is a small, high-speed storage location, this is a temporary memory which is manipulated in processes. 
 
