@@ -17,7 +17,11 @@ This challenge inundates us into the utilisation of disassembly software to reve
 I has initially places the literal file/memory address of the eax register into consideration, this was a crucial error and a misstep in me not reading the problem statement correctly. 
 
 ## Resources: 
+
 IDA Free 9.0
+
 Cyberchef (https://cyberchef.org/)
 
 ***
+
+# 2. ARMssembly 1
