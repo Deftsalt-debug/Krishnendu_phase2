@@ -26,7 +26,24 @@ Cyberchef (https://cyberchef.org/)
 ***
 
 # 2. ARMssembly 1
+For what argument does this program print `win` with variables 87, 3 and 3? File: chall_1.S Flag format: picoCTF{XXXXXXXX} -> (hex, lowercase, no 0x, and 32 bits. ex. 5614267 would be picoCTF{0055aabb})
 
+## Solution
+This requires a broader knowledge of the keywords in an assembly script, here we're given a raw assembly script for an x64 ARM processor. We must analyse the raw code to see what the program check and returns a "win" for. We must also have to convert that argument into hex (the format specifies 32bit). On a look into the code we see a few primary functions which eventually compute((87 << 3) / 3) - input and crossreferences them with zero and returns the winning statement when true. Thus on calculation we get 232 to be the winning argument.
+
+## Flag:
+```
+picoCTF{000000e8}
+```
+
+## Concepts learnt
+Here, as in the previous challenge, mov copies a value into a register. lsl here means "logical shift left", performing a binary shift (<<) equivalent to multiplying by 2^(shift amount). sdiv performs signed integer division of two registers. Sub is straightforward, it simply subtracts two registers. cbz here compares a register's value with zero and branches into a label if true. A label is simply a named location in the program’s code (they end with a :). 
+
+## Notes:
+This was a fundamental case of me not paying attention to what's in front of me, I had initially seen that it was not possible to run the dissassembly software on the code and began looking into docker use to emulate a linux platform to disassemble the program. All while not properly looking into the program itself. The entire solution is in the program itself. 
+
+## Resources
+https://azeria-labs.com/arm-instruction-set-part-3/
 
 
 ***
