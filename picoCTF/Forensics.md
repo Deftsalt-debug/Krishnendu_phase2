@@ -46,7 +46,7 @@ picoCTF{beep_boop_im_in_space}
 Here I've delved further into how one can pass an image via audio. Looked into how slow scan television networks actually function.
 
 ## Notes
-Here I had initially not read the hints provided and simply tried a spectogram via audacity to decipher any clues yeilding nothing.
+Here I had initially not read the hints provided and simply tried a spectogram via audacity to decipher any clues yielding nothing.
 
 ## Resources
 https://sstv-decoder.mathieurenaud.fr/
