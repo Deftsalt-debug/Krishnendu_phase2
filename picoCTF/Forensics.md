@@ -51,3 +51,42 @@ Here I had initially not read the hints provided and simply tried a spectogram v
 ## Resources
 https://sstv-decoder.mathieurenaud.fr/
 https://en.wikipedia.org/wiki/Slow-scan_television  (for further learning as well as gaining the "Scottie" clue)
+
+***
+
+# 3. Trivial Flag Tansfer Protocol
+Figure out how they moved the flag.
+
+## Solution
+The challenge name is a massive hint here, exporting the TFTF objects on wireshark from the given .pcapng file we get the following. 
+
+Further using dpkg(instlled via homebrew) gives me the contents of the .deb file on mac as seen above.
+
+Passing the contents of instructions and plan under ROT13 decoding. We get the following
+`TFTPDOESNTENCRYPTOURTRAFFICSOWEMUSTDISGUISEOURFLAGTRANSFER.FIGUREOUTAWAYTOHIDETHEFLAGANDIWILLCHECKBACKFORTHEPLAN`
+and 
+`IUSEDTHEPROGRAMANDHIDITWITH-DUEDILIGENCE.CHECKOUTTHEPHOTOS`
+This gives us a massive hint as to the fact that there is some data hidden in the three images provided. Inspecting the .deb file we see steghide too (under usr/bin/) which tells us that a steganographic decoder is required. 
+
+Trying each image one by one through the passphrase `DUEDILIGENCE` (found after trial and error)
+We get a hit on the third image. picture3.bmp
+Yielding a text file and granting us the flag.
+
+## Flag:
+```
+picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
+```
+
+## Concepts Learnt
+This challenge required the use of wireshark to analyse packets sent over a network protocol, furthermore requiring the use of steganographic decoders which we can use only after the de-encryption of the two txt files via ROT13. 
+
+## Notes
+Here this was a multitude of tangents from my part. Initially my version of wireshark (4.6.0) did not support this solve and I had to downgrade my version down (thanks Anshuman), furthermore it took me a while to realise that we must use steganography as I hadn't thought about looking into the .deb file.  Finally it was quite hard to realise the passphrase despite it being under my eyes the entire time. Tried binwalk on exiftool on the images too giving me nothing of note. 
+
+## Resources
+https://apple.stackexchange.com/questions/384181/installing-from-deb-files-in-macos-catalina
+https://futureboy.us/stegano/decinput.html
+https://cyberchef.org
+https://www.dcode.fr/
+
+***
