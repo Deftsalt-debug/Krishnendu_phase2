@@ -60,12 +60,17 @@ Figure out how they moved the flag.
 ## Solution
 The challenge name is a massive hint here, exporting the TFTF objects on wireshark from the given .pcapng file we get the following. 
 
+![](IMAGES/export.png "TFTP export")
+
 Further using dpkg(instlled via homebrew) gives me the contents of the .deb file on mac as seen above.
 
-Passing the contents of instructions and plan under ROT13 decoding. We get the following
+Passing the contents of instructions and plan under ROT13 decoding. We get the following:
 `TFTPDOESNTENCRYPTOURTRAFFICSOWEMUSTDISGUISEOURFLAGTRANSFER.FIGUREOUTAWAYTOHIDETHEFLAGANDIWILLCHECKBACKFORTHEPLAN`
-and 
+
+and
+
 `IUSEDTHEPROGRAMANDHIDITWITH-DUEDILIGENCE.CHECKOUTTHEPHOTOS`
+
 This gives us a massive hint as to the fact that there is some data hidden in the three images provided. Inspecting the .deb file we see steghide too (under usr/bin/) which tells us that a steganographic decoder is required. 
 
 Trying each image one by one through the passphrase `DUEDILIGENCE` (found after trial and error)
