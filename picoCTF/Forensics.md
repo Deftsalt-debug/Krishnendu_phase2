@@ -26,3 +26,27 @@ Here I had initially tried binwalk too, with no success, I had also tried changi
 
 ## Resources
 https://www.donwalizerjr.com/understanding-bmp/
+
+*** 
+
+# 2. M00nwalk
+Decode this message from the moon.
+
+## Solution
+This challenge relies heavily on the hints provided to us. Here the .wav file given to us along with the "moon" context tells us that the flag is hidden in an image transfered by SSTV protocol. Using this we pass the .wav file into a resource and obtain the image in which the flag lies.
+
+
+## Flag:
+```
+picoCTF{beep_boop_im_in_space}
+```
+
+## Concepts learnt
+Here I've delved further into how one can pass an image via audio. Looked into how slow scan television networks actually function.
+
+## Notes
+Here I had initially not read the hints provided and simply tried a spectogram via audacity to decipher any clues yeilding nothing.
+
+## Resources
+https://sstv-decoder.mathieurenaud.fr/
+https://en.wikipedia.org/wiki/Slow-scan_television  (for further learning as well as gaining the "Scottie" clue)
