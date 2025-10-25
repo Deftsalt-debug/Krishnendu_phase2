@@ -3,12 +3,15 @@ We found this file. Recover the flag.
 
 ## Solution 
 Running exiftool on this file given to us gives us a hint that the flag is hidden somewhere in a .bmp image, this is in actuality the file given to us. 
-
+![Exiftool run](IMAGES/terminalexiftool.png "Exiftool view on terminal")
 
 Immediately changing the file extension gives us a broken link, so now we look into the hex headers of the file to see if we can try repairing anything. Crossreferencing a normal bitmap image we see that in the 14 bytes header, there are incorrectly placed bits. Here we change BA D0 00 00 to 28 00 00 00 as the header's total size should be of 40 bytes. Exporting this fixed version gives us the below image. 
 
+![](IMAGES/tunn3l_v1s10n(1).bmp "Initial repaired bitmap image")
+
 The challenge name gives me an idea that this image is not the full picture so I look into changing the dimensions of the image. Changing the height of the image to 32 03 00 00 (after trial and error), we get the final flag and full image. 
 
+![After changing height](IMAGES/tunn3l_v1s10n.bmp "Final bitmap image")
 
 ## Flag:
 ```
