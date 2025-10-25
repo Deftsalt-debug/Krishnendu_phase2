@@ -11,7 +11,7 @@ Immediately changing the file extension gives us a broken link, so now we look i
 
 The challenge name gives me an idea that this image is not the full picture so I look into changing the dimensions of the image. Changing the height of the image to 32 03 00 00 (after trial and error), we get the final flag and full image. 
 
-![After changing height](IMAGES/tunn3l_v1s10n.bmp "Final bitmap image")
+![](IMAGES/tunn3l_v1s10n.bmp "Final bitmap image")
 
 ## Flag:
 ```
@@ -35,6 +35,7 @@ Decode this message from the moon.
 ## Solution
 This challenge relies heavily on the hints provided to us. Here the .wav file given to us along with the "moon" context tells us that the flag is hidden in an image transfered by SSTV protocol. Using this we pass the .wav file into a resource and obtain the image in which the flag lies.
 
+![](IMAGES/decoded-image.png "SSTV output")
 
 ## Flag:
 ```
