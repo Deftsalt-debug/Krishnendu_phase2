@@ -43,3 +43,39 @@ Here there weren't any incorrect tangents but moreso failed attempts after round
 https://www.geeksforgeeks.org/sql/sql-concatenation-operator/
 https://www.w3schools.com/sql/sql_comments.asp
 https://github.com/payloadbox/sql-injection-payload-list
+
+***
+
+# 2. Cookies
+Who doesn't love cookies? Try to figure out the best one. http://mercury.picoctf.net:17781/
+
+## Solution
+In the website we can take a look at the textbox as given below, prompting us to type in some "cookie" of our choice. //text hints us at typing snickerdoodle
+
+![](IMAGES/cookwebpage.png "Homepage")
+
+Placing a "valid cookie" under the textbox and inspecting the actual page cookies, we see the following passed. Here I've written "chocolate chip"
+
+![](IMAGES/cookie.png "Webpage inspection after passing")
+
+The original value of the cookie at the homepage was -1 and hence we see with each new variant of a cookie passed to the site, the value increments. 
+
+Using trial and error, incrementing the cookie value by two we eventually strike the flag at the cookie value '18'.
+
+## Flag
+```
+picoCTF{3v3ry1_l0v3s_c00k135_bb3b3535}
+```
+
+## Concepts learnt
+This requires an understanding of how cookies work and how to modify it via inspection of the page. 
+
+## Notes
+None to place here, pretty straightforward challenge, simple trial and errors from my part. 
+
+## References
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies (for further reading)
+
+***
+
+
