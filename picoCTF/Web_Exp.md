@@ -22,7 +22,11 @@ Round 4 omits the admin keyword so we then proceed to using the concat operator 
 making the payload look like
 `adm'||'in';`
 
+![](IMAGES/weblogin.png "Final webpage after injection")
+
 This same payload works for the next and final round. This yields a final flag under filter.php
+
+![](IMAGES/filterphp.png "Filter website after completion of gauntlet")
 
 ## Flag:
 ```
