@@ -26,7 +26,7 @@ making the payload look like
 
 This same payload works for the next and final round. This yields a final flag under filter.php
 
-![](IMAGES/filterphp.png "Filter website after completion of gauntlet")
+![](IMAGES/filerphp.png "Filter website after completion of gauntlet")
 
 ## Flag:
 ```
