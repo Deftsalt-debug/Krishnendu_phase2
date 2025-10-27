@@ -39,3 +39,34 @@ https://www.varonis.com/blog/netcat-commands
 https://stackoverflow.com/questions/1694036/why-is-the-gets-function-so-dangerous-that-it-should-not-be-used
 
 ***
+
+# 2. Format String 0
+Can you use your knowledge of format strings to make the customers happy? Download the binary *here*. Download the source *here*.
+After running instance - Conncect via netcat 
+
+## Solution
+Just as the previous challenge, the source code utilises the SIGSEGV signal which prints the flag when activated. In the first interaction after the main function sets the program sandbox, serve_patrick() is called and it prompts us as the user and takes a string as choice1. But then we see this.
+
+```C
+int count = printf(choice1);
+```
+
+This line of code passes our string directly as the format string rather than as data. Therefore we see that any % sequences in the input will be interpreted by printf as format specifiers. Looking into the options their actual size are all the same as strings, the function only continues to the next "customer" if the string passed is greater than 64 bytes. The option "Gr%114d_Cheese" works here as %114, although not an actual format specifier in C When used like %114d, the 114 is a minimum field width. It tells printf to print the value in a field at least 114 characters wide and thus greatly increasing our size when passed into the size variable.
+
+With that serve_bob() is called where we're told to deliver an "outrageous order". The source code has no checks, except for the previously declared SIGSEGV, so now we have to look for a string to pass as a format string to "crash" the program. Passing "Cla%sic_Che%s%steak" to the prompt, as %s is a format specifier, this crashes the program and gives us our flag. This call of string format specifiers which don't really interpet anything causes a segmentation error and causes the SIGSEGV function to activate and print our flag.
+
+![](IMAGES/format_string.png "Full netcat connection")
+
+## Flag:
+```
+picoCTF{7h3_cu570m3r_15_n3v3r_SEGFAULT_dc0f36c4}
+```
+
+## Concepts Learnt
+Format specifiers are the main takeaway here, this challenge gives us an idea of how they work and how they're subtly used in completing the challenge. Also looked into the nuances of the printf command during variable initialisation. 
+
+## Notes
+Quite an easy challenge, only required two tries. 
+
+## References
+https://www.geeksforgeeks.org/c/format-specifiers-in-c/
