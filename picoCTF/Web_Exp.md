@@ -118,7 +118,7 @@ picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_dcdca99a}
 ```
 
 ## Concepts learnt
-This challenge taught us further in how we can identify server engines by a framework of templates, I also learnt a bit of syntax with respect to the `curl` command. Learnt a good chunk on how different payloads affect various engines and how they actually work under the hood.  
+This challenge taught us further in how we can identify server engines by a framework of templates, I also learnt a bit of syntax with respect to the `curl` command. Learnt a good chunk on how different payloads affect various engines and how they actually work under the hood. Here jninja2 operates on anything under the `{{...}}` and `self._TemplateReference__context` tries to access the internal template context object (in this context its a data structure that makes variables and functions available for use within a template). `.popen("cat flag").read()` — uses os.popen() to execute a shell command (cat flag) and read its output. 
  
 ## Notes
 Here I tried more rudimentary methods to get the flag which were incorrect, took me a while to get to the server side template injection part. I tried a few things from web gauntlet to no avail too. Research into this took longer than expected. Tried simple payloads such as `{{ls}}` which failed.
