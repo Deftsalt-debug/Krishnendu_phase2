@@ -122,7 +122,7 @@ This was a step more difficult for me compared to previous challenges. I wasn't 
 
 ## References
 https://docs.pwntools.com/en/latest/util/packing.html#pwnlib.util.packing.p64
-docs.pwntools.com/en/stable/tubes/sockets.html#pwnlib.tubes.remote.remote
+https://docs.pwntools.com/en/stable/tubes/sockets.html#pwnlib.tubes.remote.remote
 https://www.geeksforgeeks.org/dsa/little-and-big-endian-mystery/
 https://guyinatuxedo.github.io/02-intro_tooling/pwntools/index.html
 https://en.wikipedia.org/wiki/Endianness
