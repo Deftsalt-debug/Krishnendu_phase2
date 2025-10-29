@@ -154,4 +154,63 @@ https://www.geeksforgeeks.org/python/ord-function-python/
 
 ***
 
-# 3. 
+# 3. MiniRSA
+What happens if you have a small exponent? There is a twist though, we padded the plaintext so that (M ** e) is just barely larger than N. Let's decrypt this: ciphertext
+
+## Solution
+We're given a ciphertext. RSA encryption uses the formula c = m^e mod(N) where m is plaintext, e is a public exponent, n is a product of two large primes(p and q). 
+Decryption requires the private exponent d, which satisfies m = c^d mod(N); By essence only someone who knows p and q can compute d. 
+In the challenge, the message was padded so that m^e is just slightly larger than N.
+Which gives us m^e = c + iN for some small integer i.
+To recover m, we try small values of i iterating all the way to 10000; Compute c + iN; Take the integer cube root of that number, we're using binary search method here as the numbers are so large. If (m^e) = c + kN is a perfect cube, you’ve found the plaintext m. 
+
+Formatting this into a .py script we get the following:
+
+```py
+import binascii
+n = 1615765684321463054078226051959887884233678317734892901740763321135213636796075462401950274602405095138589898087428337758445013281488966866073355710771864671726991918706558071231266976427184673800225254531695928541272546385146495736420261815693810544589811104967829354461491178200126099661909654163542661541699404839644035177445092988952614918424317082380174383819025585076206641993479326576180793544321194357018916215113009742654408597083724508169216182008449693917227497813165444372201517541788989925461711067825681947947471001390843774746442699739386923285801022685451221261010798837646928092277556198145662924691803032880040492762442561497760689933601781401617086600593482127465655390841361154025890679757514060456103104199255917164678161972735858939464790960448345988941481499050248673128656508055285037090026439683847266536283160142071643015434813473463469733112182328678706702116054036618277506997666534567846763938692335069955755244438415377933440029498378955355877502743215305768814857864433151287
+e = 3
+
+c =1220012318588871886132524757898884422174534558055593713309088304910273991073554732659977133980685370899257850121970812405700793710546674062154237544840177616746805668666317481140872605653768484867292138139949076102907399831998827567645230986345455915692863094364797526497302082734955903755050638155202890599808147276605782889813772992918898400408026067642464141885067379614918437023839625205930332182990301333585691581437573708925507991608699550931884734959475780164693178925308303420298715231388421829397209435815583140323329070684583974607064056215836529244330562254568162453025117819569708767522400676415959028292550922595255396203239357606521218664984826377129270592358124859832816717406984802489441913267065210674087743685058164539822623810831754845900660230416950321563523723959232766094292905543274107712867486590646161628402198049221567774173578088527367084843924843266361134842269034459560612360763383547251378793641304151038512392821572406034926965112582374825926358165795831789031647600129008730
+def root(x,n):
+    upp = 1
+    while upp ** n <= x:
+        upp *= 2
+    low = upp // 2
+    while low < upp:
+        mid = (low+upp) // 2
+        mid_n = mid ** n
+        if low < mid and mid_n < x:
+            low = mid
+        elif upp > mid and mid_n > x:
+            upp = mid
+        else:
+            return mid
+    return mid + 1
+for i in range(10000):
+    str=("{:x}".format(root(c+i*n,3)))
+    if "7069636f" in str:
+        print (str)
+        print(binascii.unhexlify(str))
+```
+
+Here the `**` is the exponentiation operator. This allows for a lossless compute of the power. binascii package helps us convert hex data into raw bytes. 
+`"{:x}".format(...)` converts the integer root to a lowercase hexadecimal string (no 0x, just hex digits). You store that string in the variable named str.
+The script checks if the substring "7069636f" appears in the hex representation here it's the representation of "pico" and we search for that hex subtstring in the final ascii hex. Printing us our flag.
+
+## Flag:
+```
+picoCTF{e_sh0u1d_b3_lArg3r_85d643d5}
+```
+
+## Concepts Learnt
+Learnt futher into RSA encrption and how we can compute integer cube roots of a large int via binary search. Leant the binascii package too as well as the exponential operator in py. 
+
+## Notes 
+This is said to be a rudimentary solution, I had to take external help for this as I wasn't able to figure out the math behind this. The references attached are insightful and gave me a better understanding of the topics. Very tough overall, had to try multiple failed iterations before eventually searching for more.
+
+## References. 
+https://riptutorial.com/python/example/8751/computing-large-integer-roots
+https://www.geeksforgeeks.org/python/python-program-to-find-square-root-of-given-number/
+https://docs.micropython.org/en/latest/library/binascii.html
+https://www.datacamp.com/tutorial/exponents-in-python
