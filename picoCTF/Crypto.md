@@ -144,7 +144,7 @@ The XOR cipher depends on the text key arrangement. Because the code iterates ov
 This program essentially undoes whatever the custom encryption did to generate the cipher.
 
 ## Notes
-This was quite straightforward, none to note here. Had to research a good chunk into XOR cpihers and reverse-engineering the code. Once again my biggest issue here was the trial and error in making the code.
+This was quite straightforward, none to note here. Had to research a good chunk into XOR ciphers and reverse-engineering the code. Once again my biggest issue here was the trial and error in compiling the code.
 
 ## References
 https://www.geeksforgeeks.org/python/get-the-logical-xor-of-two-variables-in-python/
