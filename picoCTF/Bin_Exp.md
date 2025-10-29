@@ -108,7 +108,7 @@ picoCTF{c0ntr0ll3d_clutt3r_1n_my_buff3r}
 ```
 
 ## Concepts learnt
-Here p64 passes a little-endian representation of the hex code after overflowing the buffer, rewriting it with the representation of `0xdeadbeef`. 
+Here p64 passes a little-endian representation of the hex code after overflowing the buffer (A is repeated 0x108 times i.e 264), rewriting it with the representation of `0xdeadbeef`. 
 Remote here estabilshes a connection automatically to the challenge server via code. (no need to nc in terminal)
 `r.recvall()` reads everything the remote end sends until the connection closes. 
 `.decode(errors="ignore")` converts the raw bytes to a string for printing
@@ -118,6 +118,11 @@ b"..." produces a bytes object to pass raw binary data
 The reason why we script this is because of the fact that we can't pass the raw binary data of the converted text as ASCII into the nc connection and hence requires so. I think printf also works here as it passes data as raw binary but I couldn't seem to get it to pipe into the nc connection.  
 
 ## Notes
-
+This was a step more difficult for me compared to previous challenges. I wasn't familiar with how to pass the hex equivalent to the buffer so all I got were iterations of 0x1414141 into my code as only A's filled the stack after overflow. This was quite complex and had me delve into little endian representation as well as the pwntools catalogue, eventually forcing me to script the paylaod passing. 
 
 ## References
+https://docs.pwntools.com/en/latest/util/packing.html#pwnlib.util.packing.p64
+docs.pwntools.com/en/stable/tubes/sockets.html#pwnlib.tubes.remote.remote
+https://www.geeksforgeeks.org/dsa/little-and-big-endian-mystery/
+https://guyinatuxedo.github.io/02-intro_tooling/pwntools/index.html
+https://en.wikipedia.org/wiki/Endianness
