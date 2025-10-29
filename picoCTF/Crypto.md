@@ -90,3 +90,68 @@ https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/
 https://github.com/openssl/openssl
 https://www.geeksforgeeks.org/python/string-slicing-in-python/
 https://www.geeksforgeeks.org/python/division-operators-in-python/
+
+***
+
+# 2. Custom Encryption
+Can you get sense of this code file and write the function that will decode the given encrypted file content. Find the encrypted file here flag_info and code file might be good to analyze and get the flag. 
+
+## Solution 
+This challenge utilises reverse xor to obtain the flag, here the cipher is obtained by passing the values of a and b from the program and passing it through a generator function, creating shared keys. Then making a semi_cipher and passing it into an encrption function once more which multiplies each char code by shared_key*311. 
+The above is what we get from the provided challenge file, here the test key is "trudeau" which gives us the encrypted cipher in enc_flag. 
+
+Reversing this we create the following .py script.
+
+```py
+def generator(g, x, p):
+    return pow(g, x) % p
+def dynamic_xor_encrypt(plaintext, text_key):
+    cipher_text = ""
+    key_length = len(text_key)
+    for i, char in enumerate(plaintext[::-1]):
+        key_char = text_key[i % key_length]
+        encrypted_char = chr(ord(char) ^ ord(key_char))
+        cipher_text += encrypted_char
+    return cipher_text
+a = 94
+b = 21
+p = 97
+g = 31
+cipher = [131553, 993956, 964722, 1359381, 43851, 1169360, 950105, 321574, 1081658, 613914, 0, 1213211, 306957, 73085, 993956, 0, 321574, 1257062, 14617, 906254, 350808, 394659, 87702, 87702, 248489, 87702, 380042, 745467, 467744, 716233, 380042, 102319, 175404, 248489]
+v = generator(g, b, p)
+k = generator(v, a, p)
+print(k)
+dc=""
+for ch in cipher:
+    dc += chr(ch // 311 // k)
+print(dynamic_xor_encrypt(dc, "aedurtu")) #Before aedurtu we passed picoCTF{ to obtain the arrangement
+```
+
+Here we import the generator and xor encrypt functions from the original program. Now we take in the ciphers and divide them with the shared keys along with 311. This key is generated the same way we did in the original program. 
+From here we pass the semi-decrypted string with a part of the flag which we know is present. i.e(picoCTF). We can use a known-plaintext snippet to derive how the key needs to be arranged (reverse + rotation) to align with the code’s reverse traversal for your exact message length. We see the arrangement of "trudeau" in the key and thus giving us the arranged key to pass once more. 
+
+![](IMAGES/rearrange.png "Trudeau rearranged")
+
+Passing it now as "aedurtu", the XOR lines up correctly. Giving us the flag.
+
+## Flag
+```
+picoCTF{custom_d2cr0pt6d_8b41f976}
+```
+
+## Concepts learnt
+The XOR cipher depends on the text key arrangement. Because the code iterates over the reversed plaintext, we must use the reversed/rotated version of the intended key so that, from the perspective of the forward plaintext, characters match the intended key letters.
+This program essentially undoes whatever the custom encryption did to generate the cipher.
+
+## Notes
+This was quite straightforward, none to note here. Had to research a good chunk into XOR cpihers and reverse-engineering the code. Once again my biggest issue here was the trial and error in making the code.
+
+## References
+https://www.geeksforgeeks.org/python/get-the-logical-xor-of-two-variables-in-python/
+https://www.geeksforgeeks.org/python/enumerate-in-python/
+https://www.101computing.net/xor-encryption-algorithm/
+https://www.geeksforgeeks.org/python/ord-function-python/
+
+***
+
+# 3. 
