@@ -6,7 +6,7 @@ After some intensive reconassainance they found out that the bank has an oracle 
 ## Solution:
 Looking into the netcat connection we see the following
 
-
+![](IMAGES/oracle.png "Passing random payload to the oracle")
 
 This hints at the fact that we need to use opennetcat to obtain the passkey to decrypt the secret.enc via password.enc. We can't seem to paste the raw bytes into the oracle as stated in the challenge prompt. The challenge prompts us to use "Chosen plaintext attack" and use openssl along with the passkey obtained to decrypt the secret.enc file to actual plaintext. 
 
@@ -54,9 +54,9 @@ print(byte_array.decode('ascii'))
 r.close()
 ```
 
-Running this grants us the passkey as shown: 
+Running this grants us the passkey as shown: (had to launch another instance for this screenshot)
 
-
+![](IMAGES/finalout.png "Running exploit.py")
 
 Now running this in the terminal, and pasing the passkey gives us the flag:
 ```zsh
