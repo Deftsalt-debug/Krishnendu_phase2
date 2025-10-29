@@ -130,7 +130,7 @@ print(dynamic_xor_encrypt(dc, "aedurtu")) #Before aedurtu we passed picoCTF{ to 
 Here we import the generator and xor encrypt functions from the original program. Now we take in the ciphers and divide them with the shared keys along with 311. This key is generated the same way we did in the original program. 
 From here we pass the semi-decrypted string with a part of the flag which we know is present. i.e(picoCTF). We can use a known-plaintext snippet to derive how the key needs to be arranged (reverse + rotation) to align with the code’s reverse traversal for your exact message length. We see the arrangement of "trudeau" in the key and thus giving us the arranged key to pass once more. 
 
-![](IMAGES/rearrange.png "Trudeau rearranged")
+![](IMAGES/rearranged.png "Trudeau rearranged")
 
 Passing it now as "aedurtu", the XOR lines up correctly. Giving us the flag.
 
