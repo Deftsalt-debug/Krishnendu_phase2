@@ -60,3 +60,12 @@ https://en.wikipedia.org/wiki/Logic_analyzer
 https://www.geeksforgeeks.org/computer-networks/universal-asynchronous-receiver-transmitter-uart-protocol/
 https://www.youtube.com/watch?v=Ak9R4yxQPhs
 
+***
+
+# 3. Bare Metal Alchemist
+my friend recommended me this anime but i think i've heard a wrong name.
+Attached is an elf file
+
+## Solution
+
+
