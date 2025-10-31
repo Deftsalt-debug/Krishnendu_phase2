@@ -154,7 +154,7 @@ https://www.geeksforgeeks.org/python/ord-function-python/
 
 ***
 
-# 3. MiniRSA
+# 3. Mini RSA
 What happens if you have a small exponent? There is a twist though, we padded the plaintext so that (M ** e) is just barely larger than N. Let's decrypt this: ciphertext
 
 ## Solution
@@ -214,3 +214,25 @@ https://riptutorial.com/python/example/8751/computing-large-integer-roots
 https://www.geeksforgeeks.org/python/python-program-to-find-square-root-of-given-number/
 https://docs.micropython.org/en/latest/library/binascii.html
 https://www.datacamp.com/tutorial/exponents-in-python
+
+***
+# 4. MiniRSA 
+Let's decrypt this: ciphertext? Something seems a bit small.
+
+## Solution
+We're given the ciphertext, exponent and public key.
+Placing these into dcode or my above program (.py script) we get the flag
+
+## Flag:
+```
+picoCTF{n33d_a_lArg3r_e_d0cd6eae}
+```
+
+## Concepts learnt
+This once again builds off of an understanding of RSA encrpyption as the previous challenge.
+
+## Notes
+None to note here
+
+## References 
+https://www.dcode.fr/rsa-cipher
