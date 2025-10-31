@@ -2,4 +2,4 @@
 Cryptonite JTP2
 PicoCTF username - Deftsalt
 
-![](IMAGES/Picostats.png)
+![](picoCTF/IMAGES/Picostats.png)
