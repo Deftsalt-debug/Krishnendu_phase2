@@ -69,14 +69,15 @@ Attached is an elf file
 ## Solution
 This solution required a proper disassembly of the file. Opening it on ghidra we see the following
 
+![](IMAGES/ghidrahome "Opening .elf file after analysis")
 
 Prompted by the hint of XOR I proceed to look into the main function, and under LAB_code_0121. Here we find the following
 
 ```asm
        code:0110 95 ea           ldi        R25,0xa5
        code:0111 b9 2e           mov        R11,R25
-
 ```
+
 Here the XOR key is `0xA5`, it's A5 essentially. Ldi loads an immediate value into a register here it's R25. eor is bitwise XOR. lpm esentially loads a program from flash memory. Z seems to be a pointer which the program utilises repeatedly, it's been initiallised to:
 
 ```asm
@@ -89,9 +90,14 @@ A z-register refers to a 16-bit address pointer register in some microcontroller
 
 Now searching the program for any memory/data outside of code we see this: 
 
+![](IMAGES/entrypoint.png "Pointer entry of address 0x68")
+
+
+![](IMAGES/flagbytes.png "Selected bytes to convert")
 
 Bingo, we copy and paste the bytes into cyberchef and run an XOR formula with the key being `A5`
 
+![](IMAGES/cyberchef.png "Converted bytes to ascii")
 
 
 ## Flag:
@@ -104,15 +110,18 @@ This challenge required a shift from IDA free to ghidra as IDA couldn't disassem
 ```zsh
 avr-objdump -d firmware.elf > firmware.disasm
 ```
-I had to leave this at this as ibus took way too long to download jdk25 and ghidra. Once again this challenge required a good understanding of hex bytes, asm scripts/syntax and navigation of ghidra. Overall fun solve even though I don't feel like I got the full picture. This challenge could have been solved by just tossing random hex bytes at odd locations to get the flag. 
+I had to leave the challenge as is for a while because ibus took way too long to download jdk25 and ghidra.
+Once again this challenge required a good understanding of hex bytes, asm scripts/syntax and navigation of ghidra as well as greasping an overall idea of disassembly and reverse engineering a program. 
+
+Overall fun solve even though I don't feel like I got the full picture. 
 
 ## Notes
-Looking into ghidra I felt very confused as I wasn't able to decipher anything. Couldn't really understand where to look to begin with. Addressed and keeping track of registers were also hard to do. I was pretty much carried by the hint of xor and looked solely into the sections that had eor.  It took an embarassing amount of time and for that I'm ashamed.
+Looking into ghidra I felt very confused as I wasn't able to decipher anything. Couldn't really understand where to look to begin with. Addresses and keeping track of registers were also hard to do. I was pretty much carried by the hint of xor and looked solely into the sections that had eor. It took an embarassing amount of time and for that I'm ashamed.
 
 ## References
-https://neapay.com/online-tools/hex-to-ascii-converter.html
 https://cyberchef.org/
 https://www.avrfreaks.net/s/topic/a5C3l000000UCjREAW/t062739
 https://en.wikipedia.org/wiki/AVR_microcontrollers
 https://share.google/OaDX7rEZQGs8WltOE
 https://www.youtube.com/watch?v=fTGTnrgjuGA
+https://man.archlinux.org/man/extra/avr-binutils/avr-objdump.1.en
