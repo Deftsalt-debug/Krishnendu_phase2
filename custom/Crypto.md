@@ -157,7 +157,7 @@ print("[+] PNG header OK" if ok else "[!] Warning: PNG header not detected")
 
 Fixing the header and opening the file we get:
 
-![De-encrypted](custom/quotereal.png "Final image")
+![De-encrypted](./quotereal.png "Final image")
 
 ## Flag
 ```
