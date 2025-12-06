@@ -145,7 +145,7 @@ Given is an .apk file
 Opening the file in JADX to view its contents. This converts the .dex files into actual java code into a GUI. Now looking into the actual app flow, we peek into an odd directory, being byuctf.downwiththefrench/MainActivity. Wherein we see it sets an activity_main.xml layout after which it runs a function cleanup(). Under utilites, we find this function only to see that it's erasing exactly 28 characters (or in this case, textviews). Then we look into activity_main.xml which is under Resources/res/layout. Now this seems hard to reconstuct so we then open android studio to simulate the app environment before the cleanup function. 
 Replacing the activity_main.xml from the layout folder in android studio and replacing it with what is in the apk. We see the following design.
 
-![Deigned flag](./android "Flag Reconstructed via Android studio")
+![Designed flag](./android.png "Flag Reconstructed via Android studio")
 
 Thus granting us the flag.
 
