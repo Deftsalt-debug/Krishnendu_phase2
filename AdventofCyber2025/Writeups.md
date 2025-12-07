@@ -59,3 +59,30 @@ Horizontal
 ***
 
 # Day 6.
+Day 6 focused on the use of malware analysis and how we can use sandboxes to monitor malware activity with a set of specialised tools. We've seen the differences between static and dynamic analysis. Challenge utilised PeStudio for Static analysis to find value of a checksum as well as strings of the program and a combination of Regshot and ProcMon to perform dynamic analysis of the malware. The filtering of process names and operations give us our keys in the challenges.
+
+## Flags
+```
+F29C270068F865EF4A747E2683BFA07667BF64E768B38FBB9A2750A3D879CA33
+THM{STRINGS_FOUND}
+HKU\S-1-5-21-1966530601-3185510712-10604624-1008\Software\Microsoft\Windows\CurrentVersion\Run\HopHelper
+http
+```
+
+***
+
+# Day 7.
+This day analysed network forensics through the use of `nmap` and `nc` to perform serverside analysis. We also used the `ftp` command to perform digging of the key under another port. We also used nc for TCP and UDP port scans to look into the key which we pinpoint using the `dig` command. The final part involed running a server-end listening of its ports and using mysql to obtain the final flag. 
+
+## Flag
+```
+Pwned by HopSec
+3aster_
+15_th3_
+n3w_xm45
+3306
+THM{4ll_s3rvice5_d1sc0vered}
+```
+
+
+
