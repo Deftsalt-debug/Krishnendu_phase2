@@ -74,7 +74,7 @@ http
 # Day 7.
 This day analysed network forensics through the use of `nmap` and `nc` to perform serverside analysis. We also used the `ftp` command to perform digging of the key under another port. We also used nc for TCP and UDP port scans to look into the key which we pinpoint using the `dig` command. The final part involed running a server-end listening of its ports and using mysql to obtain the final flag. 
 
-## Flag
+## Flags
 ```
 Pwned by HopSec
 3aster_
@@ -83,6 +83,15 @@ n3w_xm45
 3306
 THM{4ll_s3rvice5_d1sc0vered}
 ```
+***
 
+# Day 8.
+Today was a touch on the art of prompt engineering, essentially using the agentic AI on the calendar website to proceed with commands which we aren't actually authorised to perform. This is through the use of the AI's Chain-of-Thought reasoning which it displays to us, thus allowing for us to view potentially sensitive information and further give it a prompt to perform something it inherently shouldn't. Thereby executing restricted commands and leaking sensitive information. 
 
+## Flags
+```
+THM{XMAS_IS_COMING__BACK}
+```
+
+***
 
