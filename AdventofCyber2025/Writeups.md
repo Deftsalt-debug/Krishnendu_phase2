@@ -95,3 +95,19 @@ THM{XMAS_IS_COMING__BACK}
 
 ***
 
+# Day 9.
+This day focused on the importance of passwords, utilising brute-force attacks and dictionaries on two encyrpyted, password-protected files. One being a .zip containing a .txt file and the other being a .pdf. 
+Here we've used the pdfcrack terminal command to work off of a dictionary to accurately guess the password of the pdf file and break it.
+Further, we use john to break into the .zip file via brute-force. 
+The challenges also rotated about masked attacks and hashcat which utilises GPU-acceleration to crack passwords.
+Finally culminating in a response playbook to detect if a system is running password breaking software, so as to decet and prevent the leaking of important data(i.e - passwords). 
+
+## Flags
+```
+THM{Cr4ck1ng_PDFs_1s_34$y}
+THM{Cr4ck1n6_z1p$_1s_34$yyyy}
+```
+
+***
+
+# Day 10.
