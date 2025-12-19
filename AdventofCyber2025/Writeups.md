@@ -208,7 +208,7 @@ C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe
 ***
 
 # Day 17. + 18
-Todays challenge focused on using webexp and cyrptography via inspecting a website and cyberchef to decode encrypted passcodes and data. Very straightforward
+These two rooms focused on using webexp and cyrptography via inspecting a website and cyberchef to decode encrypted passcodes and data. Very straightforward. Also dealt with Obfuscation and Deobfuscation. Self explainatory.
 
 ## Flags
 ```
