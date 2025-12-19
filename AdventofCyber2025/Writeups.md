@@ -155,3 +155,73 @@ THM{number6-is-the-last-one!-DX!}
 ***
 
 # Day 13.
+This room had us explore YARA and it's rules which we can define to detect malware and it's patterns and behaviours. Which range from Post-incident analysis: when the security team needs to verify whether traces of malware found on one compromised host still exist elsewhere in the environment.
+Threat Hunting: searching through systems and endpoints for signs of known or related malware families.
+Intelligence-based scans: applying shared YARA rules from other defenders or kingdoms to detect new indicators of compromise.
+Memory analysis: examining active processes in a memory dump for malicious code fragments.
+This rooms focused on the implementation of searching strings and hex along with working with conditions. 
+
+
+## Flags
+```
+5
+/TBFC:[A-Za-z0-9]+/
+Find me in HopSec Island
+```
+
+***
+
+# Day 14.
+Today's chalenge dealt with Docker and explaining containers. Here we work with an actual container and fiddle with various commands which we run. 
+
+## Flags
+```
+docker ps
+Dockerfile
+THM{DOCKER_ESCAPE_SUCCESS}
+DeployMaster2025!
+```
+
+***
+
+# Day 15.
+Todays challenge also continued on splunk to analyse suspicious web commands and exploits on a server. This was again more analytical and delved into search values and filters amongst raw data and dates.
+
+## Flags 
+```
+whoami.exe
+PowerShell.exe
+```
+
+***
+
+# Day 16.
+Today's challenge focused on the utlisation on the windows registry and its specific hives to look into. We use forensics via registry editor and registry explorer to analyse hives of compromised systems.
+
+## Flags
+```
+DroneManager Updater
+C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe
+"C:\Program Files\DroneManager\dronehelper.exe" --background
+```
+
+***
+
+# Day 17. + 18
+Todays challenge focused on using webexp and cyrptography via inspecting a website and cyberchef to decode encrypted passcodes and data. Very straightforward
+
+## Flags
+```
+Iamsofluffy
+Itoldyoutochangeit!
+BugsBunny
+passw0rd1
+51rBr34chBl0ck3r
+THM{M3D13V4L_D3C0D3R_4D3P7}
+THM{C2_De0bfuscation_29838}
+THM{API_Obfusc4tion_ftw_0283}
+```
+
+***
+
+# Day 19.
