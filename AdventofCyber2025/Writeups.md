@@ -225,3 +225,74 @@ THM{API_Obfusc4tion_ftw_0283}
 ***
 
 # Day 19.
+Today's room delved into the hardware aspect of cybersecurity; we looked into SCADA it's components as well as how they are exploited. PLC's and modbus were discussed with a greater detail in the components of MODBUS, exploring a drone control system too. Finally we use nmap and pymodbus practically to recover the comprimised system to restore it to defaults. 
+
+## Flags
+```
+THM{eGgMas0V3r}
+```
+
+***
+
+# Day 20.
+Today's room focused on exploiting race conditions to break a system. Here we used burpsuite to exploit a website by repeating multiple checkouts on a website to sell out a limited product. Explorative of webex and a good learning of burpsuite and how it can be used as a repeated to parallel send requests.
+
+## Flags
+```
+THM{WINNER_OF_R@CE007}
+THM{WINNER_OF_Bunny_R@ce}
+```
+
+***
+
+# Day 21.
+Today's room focused on analysing HTML applications and exploring its general structure.
+
+## Flags
+```
+Best Festival Company Developer Survey
+getQuestions
+survey.bestfestiivalcompany.com
+i
+4
+South Pole
+ComputerName,UserName
+/details
+GET
+runObject.Run "powershell.exe -nop -w hidden -c " & feedbackString, 0, False
+base64
+rot13
+THM{Malware.Analysed}
+```
+
+***
+
+# Day 22. 
+This room allowed the use of RITA to dectect C2 comms to a server by analyzing network traffic captures and log. Also looked into Zeek logs and how they coroborate with RITA's analysis. 
+
+## Flags
+```
+6
+prevalence
+40
+dst:rabbithole.malhare.net beacon:>=70 sort:duration-desc
+80
+```
+
+***
+
+# Day 23.
+Today's room focused on aws cloud, exploring IAM users, roles, groups and policies. Then pivoting to Enumerating Users and their policies finally Enumerating Roles and how we can exploit it to gain access to an S3 file from a bucket thus granting us the flag. 
+
+## Flags
+```
+123456789012
+policy
+SirCarrotbanePolicy
+ListAllMyBuckets
+THM{more_like_sir_cloudbane}
+```
+
+***
+
+# Day 24.
