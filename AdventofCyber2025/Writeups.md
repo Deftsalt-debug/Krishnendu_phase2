@@ -295,4 +295,13 @@ THM{more_like_sir_cloudbane}
 
 ***
 
-# Day 24.
+# Day 24. FINALE
+As for the final room in the advent of cyber, we delve into the use of cURL and how we can use its multiple options to send POST requests, use cookies and sessions in a repeated manner, as well as performing bruteforcing of passwords and Bypassing User-Agent Checks. Each of these requires curl's builtin options and flags which we pass to cover each of the mentioned.
+
+## Flags
+```
+THM{curl_post_success}
+THM{session_cookie_master}
+secretpass
+THM{user_agent_filter_bypassed}
+```
