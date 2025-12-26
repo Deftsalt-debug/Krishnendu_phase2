@@ -13,4 +13,8 @@
 
 `pwn.college{M9oB1aXPBjz0ow_Pbh5-vVkDpCP.dhTOxwiMwkjNzEzW}`
 
+`pwn.college{sx-6bodBizXFr-VfcVnLQTThYlq.QXxEDOzwiMwkjNzEzW}`
+
+`pwn.college{Af28nHqecAE3rxgCfSS8cy1kT1Y.dlTOxwiMwkjNzEzW}`
+
 ``
