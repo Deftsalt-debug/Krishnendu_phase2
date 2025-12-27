@@ -47,3 +47,9 @@
 `pwn.college{4YWHcWC3hF_1-_l-r76cL13WZxP.QX1EDOzwiMwkjNzEzW}`
 
 `pwn.college{oAdDcDmX6qezKbGmYD5WD0VLr4V.QX2EDOzwiMwkjNzEzW}`
+
+`pwn.college{sZIfIVWcY8cQRSHBZVSduwOMudX.dFTMywiMwkjNzEzW}`
+
+`pwn.college{Ew_eN7KFp_a6Ipwt5WgzQlkfH9y.dJTMywiMwkjNzEzW}`
+
+``
