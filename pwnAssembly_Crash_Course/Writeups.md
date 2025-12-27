@@ -17,4 +17,5 @@
 
 `pwn.college{Af28nHqecAE3rxgCfSS8cy1kT1Y.dlTOxwiMwkjNzEzW}`
 
-``
+`pwn.college{EysKolU7A1GFJoNUPYYm5Fymhiu.dBDMywiMwkjNzEzW}`
+
