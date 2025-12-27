@@ -19,3 +19,6 @@
 
 `pwn.college{EysKolU7A1GFJoNUPYYm5Fymhiu.dBDMywiMwkjNzEzW}`
 
+`pwn.college{gQdCpfgi7OlPLIbf9tD74mVqZ-q.dFDMywiMwkjNzEzW}`
+
+`pwn.college{IvHAveNkJuTkiMXO92WCzo7Evji.dJDMywiMwkjNzEzW}`
