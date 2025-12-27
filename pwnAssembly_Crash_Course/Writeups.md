@@ -31,3 +31,7 @@
 `pwn.college{Ik9YNMobSEiv-QfDnSb9Kd0Cq35.dNDMywiMwkjNzEzW}`
 
 `pwn.college{4sx3HlGAy7bpMvsC4_4q08sVyQE.QX0EDOzwiMwkjNzEzW}`
+
+`pwn.college{MpA9mFAdWz6I-o0anl2p7ZNk85G.dRDMywiMwkjNzEzW}`
+
+`pwn.college{0pUgg-thcTljZqEwTt6FVzvQRG1.dVDMywiMwkjNzEzW}`
